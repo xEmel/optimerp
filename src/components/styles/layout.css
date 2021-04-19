@@ -128,12 +128,12 @@ html {
   -webkit-text-size-adjust: 100%;
   font-size: 62.5%;
   box-sizing: border-box;
-  overflow-y: scroll;
+  overflow-y: auto;
   min-height: 100vh;
 }
 body {
   min-height: 100vh;
-  background: #222222;
+  background: #20202B;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
