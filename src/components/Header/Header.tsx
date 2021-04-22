@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { HeaderWrapper } from "./styles"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
@@ -9,11 +9,12 @@ import { Button } from "../Button/Button"
 import { Nav } from "./Nav/Nav"
 
 const HeaderSection = styled(BackgroundImage)`
-  height: 80vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 999;
+  mask-image: linear-gradient(to top, transparent 0%, black 15%);
 `
 
 const Title = styled.h1`
@@ -22,7 +23,7 @@ const Title = styled.h1`
 `
 
 const TitleContainer = styled.div`
-  margin: 80px auto 0 auto;
+  margin: 30vh auto 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -36,7 +37,7 @@ const TitleSmall = styled.h2`
 `
 
 const StyledButton = styled(Button)`
-  margin: 100px auto 0 auto;
+  margin: 170px auto 0 auto;
 `
 
 export const Header: React.FC = () => {
@@ -60,23 +61,12 @@ export const Header: React.FC = () => {
   const imageData = data.bg.childImageSharp.fluid
   return (
     <HeaderSection fluid={imageData} Tag="header">
-      <Nav />
       <TitleContainer>
         <Title>Dołącz</Title>
-        <TitleSmall>Do wirtualnego świata</TitleSmall>
+        <TitleSmall>do wirtualnego świata</TitleSmall>
         <TitleSmall>ROLEPLAY</TitleSmall>
       </TitleContainer>
       <StyledButton>Rozpocznij</StyledButton>
-      <img
-        src={data.overlay.publicURL}
-        style={{
-          position: "absolute",
-          bottom: "-2px",
-          width: "100vw",
-          left: 0,
-        }}
-        alt=""
-      />
     </HeaderSection>
   )
 }

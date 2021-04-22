@@ -11,12 +11,14 @@ const Navbar = styled.nav`
   flex-wrap: nowrap;
   justify-content: space-between;
   z-index: 9999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 `
 
 const ImgWrapper = styled.a`
-  width: 10%;
-  max-width: 65px;
-  min-width: 35px;
+  width: 40px;
 `
 const NavItemAnimation = keyframes`
   from {
