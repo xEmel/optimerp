@@ -13,24 +13,13 @@ import styled from "styled-components"
 import { Header } from "./Header/Header"
 import { ThemeProvider } from "styled-components"
 import { theme } from "../theme"
-
-const TestHeader = styled.h1`
-  font-size: 20px;
-`
+import { SectionTitle } from "./Sections/SectionTitle"
+import { Nav } from "./Header/Nav/Nav"
 
 const Layout: React.FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
     <ThemeProvider theme={theme}>
+      <Nav />
       <Header />
       <div
         style={{

@@ -5,6 +5,7 @@ const Title = styled.h2`
   font-size: 2.3rem;
   text-align: center;
   position: relative;
+  font-weight: 500;
 `
 
 const Wrapper = styled.div`
