@@ -1,14 +1,19 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import styled from "styled-components"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 export type CardProps = {
   title: string
-  imageURL: IGatsbyImageData
-  imageBackground?: string
+  avatar: ReactNode
+  avatarBackground?: string
+  flat?: boolean
 }
 
-const CardWrapper = styled.div`
+type WrapperProps = {
+  flat?: boolean
+}
+
+const CardWrapper = styled.div<WrapperProps>`
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -16,7 +21,8 @@ const CardWrapper = styled.div`
   align-items: center;
   padding: 15px 20px;
   margin: 10px auto;
-  box-shadow: 0 0 0.75rem ${({ theme }) => theme.colors.secondary};
+  box-shadow: ${({ flat, theme }) =>
+    !flat && `0 0 0.75rem ${theme.colors.secondary}`};
   border-radius: 10px;
 `
 
@@ -48,18 +54,13 @@ const CardImage = styled.div`
 export const Card: React.FC<CardProps> = ({
   title,
   children,
-  imageURL,
-  imageBackground,
+  avatar,
+  avatarBackground,
+  flat,
 }) => {
   return (
-    <CardWrapper>
-      <CardImage imageBackground={imageBackground}>
-        <GatsbyImage
-          image={imageURL}
-          alt={"Rockstar"}
-          style={{ width: "70%" }}
-        />
-      </CardImage>
+    <CardWrapper flat={flat}>
+      <CardImage imageBackground={avatarBackground}>{avatar}</CardImage>
       <CardTitle>{title}</CardTitle>
       <CardDescription>{children}</CardDescription>
     </CardWrapper>

@@ -2,8 +2,9 @@ import React from "react"
 import { Card, CardProps } from "../Card/Card"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { SectionTitle } from "./SectionTitle"
+import { Section } from "./styles"
 
 const FirstStepsContainer = styled.div`
   display: flex;
@@ -34,37 +35,61 @@ export const FirstStepsSection: React.FC = () => {
     `
   )
 
-  const steps: (CardProps & { children: string })[] = [
+  type Steps = {
+    id: number
+    imageURL: IGatsbyImageData
+    avatarBackground: CardProps["avatarBackground"]
+    children: string
+  }
+
+  const steps: Steps[] = [
     {
-      title: "Krok 1",
-      imageBackground: "#282c34",
+      id: 1,
       imageURL: data.alt.childImageSharp.gatsbyImageData,
+      avatarBackground: "#282c34",
       children: "Pobierz i zainstaluj platformę ALT:V",
     },
     {
-      title: "Krok 2",
-      imageBackground: "#282c34",
+      id: 2,
+      avatarBackground: "#282c34",
       imageURL: data.optime.childImageSharp.gatsbyImageData,
       children:
         "Zarejestruj się na forum, potwierdź rejestrację na skrzynce mailowej załóż postać",
     },
     {
-      title: "Krok 3",
-      imageBackground: "#7289DA",
+      id: 3,
+      avatarBackground: "#7289DA",
       imageURL: data.discord.childImageSharp.gatsbyImageData,
       children:
         " Dołącz do naszej społeczności Discord i uzyskaj dostęp do serwera!",
     },
   ]
-
   return (
-    <section>
+    <Section>
       <SectionTitle>Pierwsze kroki</SectionTitle>
       <FirstStepsContainer>
-        {steps.map(step => {
-          return <Card {...step} key={step.title} />
-        })}
+        {steps
+          .sort((a, b) => a.id - b.id)
+          .map(step => {
+            const avatar = (
+              <GatsbyImage
+                alt={""}
+                image={step.imageURL}
+                style={{ width: "70%" }}
+              />
+            )
+            return (
+              <Card
+                avatar={avatar}
+                title={`Krok ${step.id}`}
+                key={step.id}
+                avatarBackground={step.avatarBackground}
+              >
+                {step.children}
+              </Card>
+            )
+          })}
       </FirstStepsContainer>
-    </section>
+    </Section>
   )
 }
