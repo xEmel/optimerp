@@ -14,3 +14,8 @@ export const DescriptionText = styled.p<DescriptionTextProps>`
   font-weight: ${props => (props.bold ? 700 : 500)};
   color: ${props => (props.primary ? props.theme.colors.primary : "white")};
 `
+
+export const Section = styled.section`
+  margin: 100px 0;
+  padding: 10px 20px;
+`
