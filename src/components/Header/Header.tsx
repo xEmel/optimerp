@@ -19,7 +19,7 @@ const HeaderSection = styled(BackgroundImage)`
 
 const Title = styled.h1`
   font-weight: bold;
-  font-size: 3.7rem;
+  font-size: 4rem;
 `
 
 const TitleContainer = styled.div`
@@ -44,9 +44,9 @@ export const Header: React.FC = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        bg: file(relativePath: { eq: "background.jpg" }) {
+        bg: file(relativePath: { eq: "background.png" }) {
           childImageSharp {
-            fluid(quality: 95, maxWidth: 1920) {
+            fluid(quality: 90, maxWidth: 1920) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
