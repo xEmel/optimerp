@@ -92,7 +92,7 @@ export const Nav: React.FC = () => {
     <Navbar>
       <ImgWrapper href={"/"}>
         <StaticImage
-          src="../../images/logo_mini.png"
+          src="../../../images/logo_mini.png"
           alt="OP"
           layout={"constrained"}
           placeholder={"blurred"}
