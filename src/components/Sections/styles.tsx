@@ -6,18 +6,19 @@ type DescriptionTextProps = {
 }
 
 export const DescriptionText = styled.p<DescriptionTextProps>`
-  margin: 50px auto 100px auto;
-  line-height: 2.2rem;
-  text-align: justify;
-  width: 75%;
-  font-size: 1.4rem;
-  font-weight: ${props => (props.bold ? 700 : 500)};
-  color: ${props => (props.primary ? props.theme.colors.primary : "white")};
+  margin: 0 auto 100px auto;
+  line-height: 2.7rem;
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: ${props => (props.bold ? 700 : 400)};
+  color: ${props =>
+    props.primary ? props.theme.colors.primary : props.theme.colors.lightDark};
 `
 
 export const Section = styled.section`
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 10px 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `

@@ -1,28 +1,55 @@
 import React from "react"
 import styled from "styled-components"
 
-const Title = styled.h2`
-  font-size: 2.3rem;
+type TitleProps = {
+  color?: string
+}
+
+const Title = styled.h2<TitleProps>`
+  font-size: 3.8rem;
   text-align: center;
   position: relative;
-  font-weight: 500;
+  color: white;
+  font-weight: 700;
+  padding: 20px 15px;
+
+  &::before {
+    content: "";
+    width: 120px;
+    height: 3px;
+    bottom: -10px;
+    position: absolute;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      ${({ theme }) => theme.colors.primary} 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
+  margin: 40px 10px;
 `
 
-const Divider = styled.div`
+type DividerProps = {
+  color?: string
+}
+
+const Divider = styled.div<DividerProps>`
   width: 15%;
   min-width: 80px;
   max-width: 35%;
   height: 8px;
   border-radius: 8px;
-  margin: 20px auto;
-  background: ${({ theme }) => theme.colors.secondary};
+  margin: 0 auto 20px auto;
+  background: ${({ theme, color }) => color || theme.colors.secondary};
   position: relative;
   &::before,
   &::after {
@@ -31,7 +58,7 @@ const Divider = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 8px;
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme, color }) => color || theme.colors.secondary};
   }
   &::after {
     right: -15px;
@@ -41,9 +68,17 @@ const Divider = styled.div`
   }
 `
 
-export const SectionTitle: React.FC = ({ children }) => (
+type SectionTitleProps = {
+  dividerColor?: string
+  color?: string
+}
+
+export const SectionTitle: React.FC<SectionTitleProps> = ({
+  children,
+  dividerColor,
+  color,
+}) => (
   <Wrapper>
-    <Divider />
-    <Title>{children}</Title>
+    <Title {...{ color }}>{children}</Title>
   </Wrapper>
 )
