@@ -7,6 +7,7 @@ import BackgroundImage from "gatsby-background-image"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Button } from "../Button/Button"
 import { Nav } from "./Nav/Nav"
+import { FormattedSpan } from "../styles/HelperStyles"
 
 const HeaderSection = styled(BackgroundImage)`
   height: 100vh;
@@ -14,26 +15,27 @@ const HeaderSection = styled(BackgroundImage)`
   flex-direction: column;
   position: relative;
   z-index: 999;
-  mask-image: linear-gradient(to top, transparent 0%, black 15%);
+  mask-image: linear-gradient(to top, transparent 3%, black 25%);
 `
 
-const Title = styled.h1`
+const Title = styled.h2`
+  font-size: 2.8rem;
   font-weight: bold;
-  font-size: 4rem;
+  line-height: 3rem;
 `
 
 const TitleContainer = styled.div`
   margin: 30vh auto 0 auto;
-  display: flex;
-  flex-direction: column;
   text-align: center;
   justify-content: space-between;
-  height: 130px;
+  width: 80%;
 `
 
-const TitleSmall = styled.h2`
-  font-weight: bold;
-  font-size: 2rem;
+const Description = styled.p`
+  color: ${({ theme }) => theme.colors.lightDark};
+  font-size: 1.4rem;
+  margin-top: 20px;
+  font-weight: 300;
 `
 
 const StyledButton = styled(Button)`
@@ -62,9 +64,13 @@ export const Header: React.FC = () => {
   return (
     <HeaderSection fluid={imageData} Tag="header">
       <TitleContainer>
-        <Title>Dołącz</Title>
-        <TitleSmall>do wirtualnego świata</TitleSmall>
-        <TitleSmall>ROLEPLAY</TitleSmall>
+        <Title>
+          Dołącz do wirtualnego świata{" "}
+          <FormattedSpan primary bold>
+            OPTIME
+          </FormattedSpan>
+        </Title>
+        <Description>Tworzymy dla Ciebie miejsce rozgrywki.</Description>
       </TitleContainer>
       <StyledButton>Rozpocznij</StyledButton>
     </HeaderSection>
