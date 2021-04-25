@@ -7,7 +7,7 @@ type FormattedSpanProps = {
   secondary?: boolean
 }
 
-export const FormattedSpan = styled.span<FormattedSpanProps>`
+export const StyledSpan = styled.span<FormattedSpanProps>`
   font-weight: ${({ bold }) => bold && "700"};
   color: ${({ color, primary, secondary, theme }) =>
     (primary && theme.colors.primary) ||
