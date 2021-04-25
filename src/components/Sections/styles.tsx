@@ -6,8 +6,8 @@ type DescriptionTextProps = {
 }
 
 export const DescriptionText = styled.p<DescriptionTextProps>`
-  margin: 50px auto 20px auto;
-  line-height: 1.7rem;
+  margin: 50px auto 100px auto;
+  line-height: 2.2rem;
   text-align: justify;
   width: 75%;
   font-size: 1.4rem;
@@ -16,6 +16,8 @@ export const DescriptionText = styled.p<DescriptionTextProps>`
 `
 
 export const Section = styled.section`
-  margin: 100px 0;
+  margin: 100px auto;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
 `
