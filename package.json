@@ -19,6 +19,7 @@
     "gatsby-plugin-typescript": "^3.3.0",
     "gatsby-source-filesystem": "^3.2.0",
     "gatsby-transformer-sharp": "^3.3.0",
+    "gsap": "^3.6.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -29,6 +30,7 @@
     "typescript": "^4.2.4"
   },
   "devDependencies": {
+    "@types/gsap": "^1.20.2",
     "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
