@@ -10,13 +10,17 @@ import styled from "styled-components"
 import { Header } from "../components/Header/Header"
 import { AboutProject } from "../components/Sections/AboutProject"
 import { FirstStepsSection } from "../components/Sections/FirstSteps"
+import { DifferentSection } from "../components/Sections/DifferentSection"
+import { PartTimeJobsSection } from "../components/Sections/PartTimeJobsSection"
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Strona główna" />
-      <FirstStepsSection />
       <AboutProject />
+      <FirstStepsSection />
+      <DifferentSection />
+      <PartTimeJobsSection />
     </Layout>
   )
 }
