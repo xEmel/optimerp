@@ -1,16 +1,11 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Card, CardProps } from "../Card/Card"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { SectionTitle } from "./SectionTitle"
 import { Section } from "./styles"
-
-const FirstStepsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px 20px;
-`
+import { CardContainer } from "../Card/styles"
 
 export const FirstStepsSection: React.FC = () => {
   const data = useStaticQuery(
@@ -39,7 +34,7 @@ export const FirstStepsSection: React.FC = () => {
     id: number
     imageURL: IGatsbyImageData
     avatarBackground: CardProps["avatarBackground"]
-    children: string
+    children: ReactNode
   }
 
   const steps: Steps[] = [
@@ -47,14 +42,23 @@ export const FirstStepsSection: React.FC = () => {
       id: 1,
       imageURL: data.alt.childImageSharp.gatsbyImageData,
       avatarBackground: "#282c34",
-      children: "Pobierz i zainstaluj platformę ALT:V",
+      children: (
+        <>
+          Pobierz i zainstaluj platformę{" "}
+          <a href={"https://altv.mp/#/downloads"}>ALT:V</a>
+        </>
+      ),
     },
     {
       id: 2,
       avatarBackground: "#282c34",
       imageURL: data.optime.childImageSharp.gatsbyImageData,
-      children:
-        "Zarejestruj się na forum, potwierdź rejestrację na skrzynce mailowej załóż postać",
+      children: (
+        <>
+          Zarejestruj się na <a href={"#"}>forum</a>, potwierdź rejestrację na
+          skrzynce mailowej i załóż postać
+        </>
+      ),
     },
     {
       id: 3,
@@ -67,7 +71,7 @@ export const FirstStepsSection: React.FC = () => {
   return (
     <Section>
       <SectionTitle>Pierwsze kroki</SectionTitle>
-      <FirstStepsContainer>
+      <CardContainer>
         {steps
           .sort((a, b) => a.id - b.id)
           .map(step => {
@@ -89,7 +93,7 @@ export const FirstStepsSection: React.FC = () => {
               </Card>
             )
           })}
-      </FirstStepsContainer>
+      </CardContainer>
     </Section>
   )
 }
