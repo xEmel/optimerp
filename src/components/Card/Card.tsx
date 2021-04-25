@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react"
-import styled from "styled-components"
+import styled, { CSSProperties } from "styled-components"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 export type CardProps = {
@@ -7,10 +7,12 @@ export type CardProps = {
   avatar: ReactNode
   avatarBackground?: string
   flat?: boolean
+  boxShadowColor?: string
 }
 
 type WrapperProps = {
   flat?: boolean
+  boxShadowColor?: string
 }
 
 const CardWrapper = styled.div<WrapperProps>`
@@ -20,22 +22,23 @@ const CardWrapper = styled.div<WrapperProps>`
   min-height: 200px;
   align-items: center;
   padding: 15px 20px;
-  margin: 10px auto;
-  box-shadow: ${({ flat, theme }) =>
-    !flat && `0 0 0.75rem ${theme.colors.secondary}`};
+  margin: 10px;
+  box-shadow: ${({ flat, theme, boxShadowColor }) =>
+    !flat && `0 0 0.75rem ${boxShadowColor || theme.colors.secondary}`};
   border-radius: 10px;
 `
 
 const CardTitle = styled.h2`
   margin: 15px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 500;
+  text-align: center;
 `
 
 const CardDescription = styled.p`
-  text-align: justify;
+  text-align: center;
   font-size: 1.2rem;
-  line-height: 1.5rem;
+  line-height: 2rem;
 `
 
 const CardImage = styled.div`
@@ -57,9 +60,10 @@ export const Card: React.FC<CardProps> = ({
   avatar,
   avatarBackground,
   flat,
+  boxShadowColor,
 }) => {
   return (
-    <CardWrapper flat={flat}>
+    <CardWrapper {...{ flat }} {...{ boxShadowColor }}>
       <CardImage imageBackground={avatarBackground}>{avatar}</CardImage>
       <CardTitle>{title}</CardTitle>
       <CardDescription>{children}</CardDescription>
