@@ -7,7 +7,7 @@ import BackgroundImage from "gatsby-background-image"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Button } from "../Button/Button"
 import { Nav } from "./Nav/Nav"
-import { FormattedSpan } from "../styles/HelperStyles"
+import { StyledSpan } from "../styles/HelperStyles"
 
 const HeaderSection = styled(BackgroundImage)`
   height: 100vh;
@@ -35,7 +35,7 @@ const Description = styled.p`
   color: ${({ theme }) => theme.colors.lightDark};
   font-size: 1.4rem;
   margin-top: 20px;
-  font-weight: 300;
+  font-weight: 700;
 `
 
 const StyledButton = styled(Button)`
@@ -66,9 +66,9 @@ export const Header: React.FC = () => {
       <TitleContainer>
         <Title>
           Dołącz do wirtualnego świata{" "}
-          <FormattedSpan primary bold>
+          <StyledSpan primary bold>
             OPTIME
-          </FormattedSpan>
+          </StyledSpan>
         </Title>
         <Description>Tworzymy dla Ciebie miejsce rozgrywki.</Description>
       </TitleContainer>
