@@ -1,26 +1,23 @@
 import * as React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import BackgroundImage from "gatsby-background-image"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Button } from "../components/Button/Button"
-import styled from "styled-components"
-import { Header } from "../components/Header/Header"
 import { AboutProject } from "../components/Sections/AboutProject"
 import { FirstStepsSection } from "../components/Sections/FirstSteps"
-import { DifferentSection } from "../components/Sections/DifferentSection"
-import { PartTimeJobsSection } from "../components/Sections/PartTimeJobsSection"
+import { OurAssumptions } from "../components/Sections/OurAssumptions"
+import { PartTimeJobs } from "../components/Sections/PartTimeJobs"
+import { Qualities } from "../components/Sections/Qualities"
+import { Faq } from "../components/Sections/Faq"
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Strona główna" />
       <AboutProject />
+      <PartTimeJobs />
       <FirstStepsSection />
-      <DifferentSection />
-      <PartTimeJobsSection />
+      <OurAssumptions />
+      <Qualities />
+      <Faq />
     </Layout>
   )
 }
