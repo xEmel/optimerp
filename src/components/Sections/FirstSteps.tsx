@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { SectionTitle } from "./SectionTitle"
-import { Section } from "./styles"
+import { DescriptionText, Section } from "./styles"
 import { CardContainer } from "../Card/styles"
 
 export const FirstStepsSection: React.FC = () => {
@@ -71,6 +71,10 @@ export const FirstStepsSection: React.FC = () => {
   return (
     <Section>
       <SectionTitle>Pierwsze kroki</SectionTitle>
+      <DescriptionText>
+        Czujesz się zagubiony? Nie wiesz jak dołączyć na nasz serwer? To
+        bajecznie proste, zastosuj się tylko do tych paru kroków.
+      </DescriptionText>
       <CardContainer>
         {steps
           .sort((a, b) => a.id - b.id)
