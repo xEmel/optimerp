@@ -16,6 +16,7 @@ export type Refs = {
   partTimeRef: React.RefObject<HTMLElement>
   firstStepsRef: React.RefObject<HTMLElement>
   faqRef: React.RefObject<HTMLElement>
+  headerRef: React.RefObject<HTMLElement>
 }
 
 const IndexPage = () => {
@@ -24,12 +25,13 @@ const IndexPage = () => {
     partTimeRef: useRef<HTMLElement>(null),
     firstStepsRef: useRef<HTMLElement>(null),
     faqRef: useRef<HTMLElement>(null),
+    headerRef: useRef<HTMLElement>(null),
   }
   return (
     <Layout>
       <SEO title="Strona główna" />
       <Nav {...{ refs }} />
-      <Header startRef={refs.aboutRef} />
+      <Header startRef={refs.aboutRef} ref={refs.headerRef} />
       <AboutProject ref={refs.aboutRef} />
       <PartTimeJobs ref={refs.partTimeRef} />
       <FirstStepsSection ref={refs.firstStepsRef} />

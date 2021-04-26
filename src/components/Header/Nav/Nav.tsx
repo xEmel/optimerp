@@ -99,12 +99,20 @@ type Tab = {
 type NavProps = {
   refs: Refs
 }
+
+const scrollToTab = (offsetTop: number) => {
+  window.scrollTo({
+    top: offsetTop,
+    behavior: "smooth",
+  })
+}
+
 export const Nav: React.FC<NavProps> = ({ refs }) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
   const Tabs: Tab[] = [
     {
       name: "Home",
-      ref: refs.aboutRef,
+      ref: refs.headerRef,
     },
     {
       name: "Poznaj nas",
@@ -120,11 +128,9 @@ export const Nav: React.FC<NavProps> = ({ refs }) => {
     },
   ]
 
-  const scrollToTab = (ref: React.RefObject<HTMLElement>) => {
-    window.scrollTo({
-      top: ref.current?.offsetTop,
-      behavior: "smooth",
-    })
+  const handleTabClick = (ref: React.RefObject<HTMLElement>) => {
+    scrollToTab(ref.current?.offsetTop || 0)
+    if (isMenuOpen) setMenuOpen(false)
   }
 
   return (
@@ -141,11 +147,7 @@ export const Nav: React.FC<NavProps> = ({ refs }) => {
         <NavContainer open={isMenuOpen}>
           {Tabs.map(tab => (
             <li key={tab.name}>
-              <NavItem
-                onClick={() => {
-                  scrollToTab(tab.ref)
-                }}
-              >
+              <NavItem onClick={() => handleTabClick(tab.ref)}>
                 {tab.name}
               </NavItem>
             </li>
