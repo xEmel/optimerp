@@ -41,19 +41,21 @@ const SEO: React.FC<SeoProps> = ({ description, lang = "pl", meta, title }) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : ""}
+      titleTemplate={"Optime Roleplay"}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content:
+            "Optime RP to serwer roleplay stworzony na platformie alt:V z myślą o Tobie. Sprawdź, co dla Ciebie przygotowaliśmy.",
         },
         {
           property: `og:title`,
-          content: title,
+          content: "Optime Roleplay",
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content:
+            "Tworzymy dla Ciebie miejsce rozgrywki, sprawdź co przygotowaliśmy.",
         },
         {
           property: `og:type`,
