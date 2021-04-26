@@ -30,8 +30,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Strona główna" />
-      <Nav {...{ refs }} />
-      <Header startRef={refs.aboutRef} ref={refs.headerRef} />
+      <Header refs={refs} ref={refs.headerRef} />
       <AboutProject ref={refs.aboutRef} />
       <PartTimeJobs ref={refs.partTimeRef} />
       <FirstStepsSection ref={refs.firstStepsRef} />

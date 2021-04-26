@@ -12,10 +12,9 @@ const Navbar = styled.nav`
   flex-wrap: nowrap;
   justify-content: space-between;
   z-index: 9999;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 const ImgWrapper = styled.a`

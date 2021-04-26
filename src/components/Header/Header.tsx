@@ -5,6 +5,8 @@ import { graphql, Link, useStaticQuery } from "gatsby"
 import { Button } from "../Button/Button"
 import { StyledSpan } from "../styles/HelperStyles"
 import { FaArrowUp } from "react-icons/fa"
+import { Nav } from "./Nav/Nav"
+import { Refs } from "../../pages"
 const HeaderSection = styled(BackgroundImage)`
   height: 100vh;
   display: flex;
@@ -69,7 +71,7 @@ const ScrollButton = styled.button<ScrollButtonProps>`
 `
 
 type HeaderProps = {
-  startRef: React.RefObject<HTMLElement>
+  refs: Refs
 }
 
 const scrollToPos = (offsetTop: number) => {
@@ -80,7 +82,7 @@ const scrollToPos = (offsetTop: number) => {
 }
 
 export const Header = React.forwardRef<HTMLElement, HeaderProps>(
-  ({ startRef }, ref) => {
+  ({ refs }, ref) => {
     const [showScrollButon, setShowScrollButton] = useState(false)
     const data = useStaticQuery(
       graphql`
@@ -113,6 +115,7 @@ export const Header = React.forwardRef<HTMLElement, HeaderProps>(
     return (
       <>
         <HeaderSection fluid={imageData} Tag="header">
+          <Nav {...{ refs }} />
           <TitleContainer>
             <Title>
               Dołącz do wirtualnego świata{" "}
@@ -123,7 +126,7 @@ export const Header = React.forwardRef<HTMLElement, HeaderProps>(
             <Description>Tworzymy dla Ciebie miejsce rozgrywki.</Description>
           </TitleContainer>
           <StyledButton
-            onClick={() => scrollToPos(startRef.current?.offsetTop || 0)}
+            onClick={() => scrollToPos(refs.aboutRef.current?.offsetTop || 0)}
           >
             Rozpocznij
           </StyledButton>
