@@ -22,7 +22,7 @@ const StyledMockupImage = styled(MockupImage)`
   }
 `
 
-export const AboutProject: React.FC = () => {
+export const AboutProject = React.forwardRef<HTMLElement>((props, ref) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -57,7 +57,7 @@ export const AboutProject: React.FC = () => {
   )
 
   return (
-    <Section>
+    <Section ref={ref}>
       <Flex>
         <StyledMockupImage>
           <GatsbyImage
@@ -109,4 +109,5 @@ export const AboutProject: React.FC = () => {
       </FeatureImageContainer>
     </Section>
   )
-}
+})
+AboutProject.displayName = "AboutProject"

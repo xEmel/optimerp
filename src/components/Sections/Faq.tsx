@@ -109,7 +109,7 @@ const faqItems: FaqItem[] = [
   },
 ]
 
-export const Faq: React.FC = () => {
+export const Faq = React.forwardRef<HTMLElement>((props, ref) => {
   const [activeItems, setActiveItems] = useState<FaqItem[]>([])
 
   const setActiveItem = (item: FaqItem) => {
@@ -121,7 +121,7 @@ export const Faq: React.FC = () => {
   }
 
   return (
-    <Section>
+    <Section ref={ref}>
       <SectionTitle>FAQ</SectionTitle>
       <DescriptionText>
         Zawsze pojawiają się jakieś pytania, zebraliśmy dla Ciebie zbiór
@@ -154,4 +154,6 @@ export const Faq: React.FC = () => {
       </FaqContainer>
     </Section>
   )
-}
+})
+
+Faq.displayName = "Faq"

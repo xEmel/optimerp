@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { FeatureImageContainer } from "../FeatureImage/styles"
 import { FeatureImage } from "../FeatureImage/FeatureImage"
 
-export const PartTimeJobs: React.FC = () => {
+export const PartTimeJobs = React.forwardRef<HTMLElement>((props, ref) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -34,7 +34,7 @@ export const PartTimeJobs: React.FC = () => {
     `
   )
   return (
-    <Section>
+    <Section ref={ref}>
       <SectionTitle>Prace dorywcze</SectionTitle>
       <DescriptionText>
         Nieodłącznym elementem na serwerze jest gotówka, a wraz z nią praca.
@@ -67,4 +67,6 @@ export const PartTimeJobs: React.FC = () => {
       </FeatureImageContainer>
     </Section>
   )
-}
+})
+
+PartTimeJobs.displayName = "PartTimeJobs"

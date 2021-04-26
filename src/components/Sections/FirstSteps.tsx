@@ -7,7 +7,7 @@ import { SectionTitle } from "./SectionTitle"
 import { DescriptionText, Section } from "./styles"
 import { CardContainer } from "../Card/styles"
 
-export const FirstStepsSection: React.FC = () => {
+export const FirstStepsSection = React.forwardRef<HTMLElement>((props, ref) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -69,7 +69,7 @@ export const FirstStepsSection: React.FC = () => {
     },
   ]
   return (
-    <Section>
+    <Section ref={ref}>
       <SectionTitle>Pierwsze kroki</SectionTitle>
       <DescriptionText>
         Czujesz się zagubiony? Nie wiesz jak dołączyć na nasz serwer? To
@@ -100,4 +100,6 @@ export const FirstStepsSection: React.FC = () => {
       </CardContainer>
     </Section>
   )
-}
+})
+
+FirstStepsSection.displayName = "FirstStepsSection"
