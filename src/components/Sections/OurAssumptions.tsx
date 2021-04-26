@@ -79,4 +79,4 @@ const DifferentSectionContent: React.FC<{
   )
 }
 
-export const DifferentSection = withTheme(DifferentSectionContent)
+export const OurAssumptions = withTheme(DifferentSectionContent)

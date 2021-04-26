@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { FeatureImageContainer } from "../FeatureImage/styles"
 import { FeatureImage } from "../FeatureImage/FeatureImage"
 
-export const PartTimeJobsSection: React.FC = () => {
+export const PartTimeJobs: React.FC = () => {
   const data = useStaticQuery(
     graphql`
       query {
