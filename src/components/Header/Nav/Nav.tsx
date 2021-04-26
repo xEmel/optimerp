@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { HamburgerMenu } from "./HamburgerMenu"
 import React, { useState } from "react"
 import styled, { keyframes } from "styled-components"
+import { Refs } from "../../../pages"
 
 const Navbar = styled.nav`
   padding: 15px 20px 0 15px;
@@ -53,7 +54,7 @@ const NavContainer = styled.ul`
   flex-wrap: nowrap;
 `
 
-const NavItem = styled.a`
+const NavItem = styled.button`
   @media only screen and (max-width: 768px) {
     width: 100%;
   }
@@ -66,6 +67,8 @@ const NavItem = styled.a`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  background: transparent;
+  border: none;
   &::before {
       content: "";
       position: absolute;
@@ -88,10 +91,42 @@ const NavItem = styled.a`
     color: ${({ theme }) => theme.colors.secondary}
 `
 
-const Tabs = ["Home", "Poznaj nas", "Prace dorywcze", "Pierwsze kroki", "FAQ"]
+type Tab = {
+  name: string
+  ref: React.RefObject<HTMLElement>
+}
 
-export const Nav: React.FC = () => {
+type NavProps = {
+  refs: Refs
+}
+export const Nav: React.FC<NavProps> = ({ refs }) => {
   const [isMenuOpen, setMenuOpen] = useState(false)
+  const Tabs: Tab[] = [
+    {
+      name: "Home",
+      ref: refs.aboutRef,
+    },
+    {
+      name: "Poznaj nas",
+      ref: refs.aboutRef,
+    },
+    {
+      name: "Prace dorywcze",
+      ref: refs.partTimeRef,
+    },
+    {
+      name: "FAQ",
+      ref: refs.faqRef,
+    },
+  ]
+
+  const scrollToTab = (ref: React.RefObject<HTMLElement>) => {
+    window.scrollTo({
+      top: ref.current?.offsetTop,
+      behavior: "smooth",
+    })
+  }
+
   return (
     <Navbar>
       <ImgWrapper href={"/"}>
@@ -104,9 +139,15 @@ export const Nav: React.FC = () => {
       </ImgWrapper>
       <div style={{ display: "flex", alignItems: "center" }}>
         <NavContainer open={isMenuOpen}>
-          {Tabs.map(t => (
-            <li key={t}>
-              <NavItem>{t}</NavItem>
+          {Tabs.map(tab => (
+            <li key={tab.name}>
+              <NavItem
+                onClick={() => {
+                  scrollToTab(tab.ref)
+                }}
+              >
+                {tab.name}
+              </NavItem>
             </li>
           ))}
         </NavContainer>

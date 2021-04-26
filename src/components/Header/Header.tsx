@@ -41,8 +41,18 @@ const Description = styled.p`
 const StyledButton = styled(Button)`
   margin: 170px auto 0 auto;
 `
+type HeaderProps = {
+  startRef: React.RefObject<HTMLElement>
+}
 
-export const Header: React.FC = () => {
+const scrollToFirstSection = (offsetTop: number) => {
+  window.scrollTo({
+    top: offsetTop,
+    behavior: "smooth",
+  })
+}
+
+export const Header: React.FC<HeaderProps> = ({ startRef }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -69,7 +79,11 @@ export const Header: React.FC = () => {
         </Title>
         <Description>Tworzymy dla Ciebie miejsce rozgrywki.</Description>
       </TitleContainer>
-      <StyledButton>Rozpocznij</StyledButton>
+      <StyledButton
+        onClick={() => scrollToFirstSection(startRef.current?.offsetTop || 0)}
+      >
+        Rozpocznij
+      </StyledButton>
     </HeaderSection>
   )
 }
