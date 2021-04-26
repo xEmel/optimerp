@@ -36,6 +36,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 40px 10px;
+  width: 100%;
 `
 
 type DividerProps = {

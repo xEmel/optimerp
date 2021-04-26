@@ -53,9 +53,6 @@ export const Header: React.FC = () => {
             }
           }
         }
-        overlay: file(relativePath: { eq: "wave.svg" }) {
-          publicURL
-        }
       }
     `
   )
