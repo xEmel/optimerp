@@ -11,21 +11,21 @@ export const PartTimeJobsSection: React.FC = () => {
       query {
         stealer: file(relativePath: { eq: "stealerJob.png" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 400) {
+            fluid(quality: 100, maxWidth: 700) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         newspaper: file(relativePath: { eq: "newspaperJob.png" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 400) {
+            fluid(quality: 100, maxWidth: 700) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
         handler: file(relativePath: { eq: "handlerJob.png" }) {
           childImageSharp {
-            fluid(quality: 100, maxWidth: 400) {
+            fluid(quality: 100, maxWidth: 700) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }
@@ -54,9 +54,8 @@ export const PartTimeJobsSection: React.FC = () => {
           imageData={data.handler.childImageSharp.fluid}
           title={"Doker"}
         >
-          Wystarczy, że posiadasz uprawnienia do kierowania pojazdami i możesz
-          wspomóc transport morski. Zostań operatorem specjalnego pojazdu i
-          przenoś kontenery w dokach.
+          Zostań operatorem specjalnego pojazdu i przenoś kontenery w dokach.
+          Wystarczy, że posiadasz prawo jazdy.
         </FeatureImage>
         <FeatureImage
           imageData={data.stealer.childImageSharp.fluid}

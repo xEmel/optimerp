@@ -12,6 +12,7 @@ const Wrapper = styled(Section)`
   position: relative;
   background: #2f2f40;
   margin: 220px 0;
+  max-width: none;
   &::before {
     content: "";
     position: absolute;
@@ -69,9 +70,9 @@ const DifferentSectionContent: React.FC<{
           avatarBackground={"#669BBC"}
           boxShadowColor={"#669BBC"}
         >
-          Naszym priorytetem jest tworzenie funkcjonalnych i ciekawych dla oka
-          interfejsów. Tworzymy spójne, ułatwiające codzienną rozgrywkę
-          interfejsy. To nieodłączny element każdej gry.
+          Wiemy, jak wpływa na końcowy odbiór użytkownika przyjemna szata
+          graficzna. Podążamy za trendami i tworzymy interfejsy zgodne z
+          zasadami UI/UX. Kierujemy się tym, co dobre.
         </Card>
       </CardContainer>
     </Wrapper>
