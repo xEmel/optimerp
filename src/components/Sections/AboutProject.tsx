@@ -6,7 +6,6 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { FeatureImage } from "../FeatureImage/FeatureImage"
 import { FeatureImageContainer } from "../FeatureImage/styles"
-import { Decorator } from "../Decorators/Decorator"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 const SubText = styled.div`
