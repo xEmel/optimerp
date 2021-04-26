@@ -91,9 +91,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 body {
-
-  line-height: 1;
-
   color: black;
 
   background: white;
@@ -157,15 +154,10 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   font-family: "Lato", georgia, serif;
-  -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 100%, 1);
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
   overflow-x: hidden;
 }
 
@@ -185,6 +177,18 @@ a {
 a:hover {
   color: #1ec3c3;
   text-decoration: underline;
+}
+
+@media (min-width: 769px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 77%;
+  }
 }
 
 
