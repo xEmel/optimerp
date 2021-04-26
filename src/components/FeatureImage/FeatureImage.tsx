@@ -7,18 +7,19 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 20px;
-  @media only screen and (min-width: 768px) {
-    margin-right: 20px;
+  min-width: 240px;
+  margin: 20px;
+  @media (max-width: 1200px) {
+    margin: 10px 5px;
   }
 `
 
 const Item = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
-  max-width: 380px;
+  max-width: 320px;
   height: 430px;
   border-top: 3px solid ${({ theme }) => theme.colors.secondary};
   box-shadow: 0 0 10px #000;
@@ -26,7 +27,7 @@ const Item = styled(BackgroundImage)`
 
 const ItemDescription = styled.div`
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   min-height: 70px;
   background: rgba(0, 0, 0, 0.45);
   line-height: 1.6rem;
