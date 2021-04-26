@@ -10,6 +10,7 @@ export const DescriptionText = styled.p<DescriptionTextProps>`
   line-height: 2.7rem;
   text-align: center;
   font-size: 1.55rem;
+  width: 100%;
   font-weight: ${props => (props.bold ? 700 : 400)};
   color: ${props =>
     props.primary ? props.theme.colors.primary : props.theme.colors.lightDark};
@@ -19,6 +20,6 @@ export const Section = styled.section`
   margin: 50px auto;
   padding: 10px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 1300px;
+  flex-wrap: wrap;
 `

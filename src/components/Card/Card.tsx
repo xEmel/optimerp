@@ -37,7 +37,7 @@ const CardTitle = styled.h2`
 
 const CardDescription = styled.p`
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   line-height: 2rem;
 `
 

@@ -26,7 +26,7 @@ const NavItemAnimation = keyframes`
     opacity: 0;
   }  
   to {
-    transform: translateX(0);
+    transform: translateX(0%);
     opacity: 1;
   }
 `
@@ -57,9 +57,10 @@ const NavItem = styled.a`
   @media only screen and (max-width: 768px) {
     width: 100%;
   }
+  color: white;
   display: block;
   font-weight: 500;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   padding: 10px;
   position: relative;
@@ -82,9 +83,12 @@ const NavItem = styled.a`
     animation-duration: 0.3s;
     animation-iteration-count: 1;
   }
+  &:hover {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.secondary}
 `
 
-const Tabs = ["Home", "O nas", "Dlaczego my"]
+const Tabs = ["Home", "Poznaj nas", "Prace dorywcze", "Pierwsze kroki", "FAQ"]
 
 export const Nav: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
